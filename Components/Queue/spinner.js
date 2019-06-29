@@ -4,6 +4,7 @@ import { Button, Content, Icon, Text } from "native-base";
 import { View } from "react-native";
 
 //Stores
+import socket from "../../Stores/socketStore";
 
 import styles from "./styles.js";
 
@@ -51,7 +52,13 @@ class Spinner extends Component {
           rounded
           light
           style={{ marginLeft: 15 }}
-          //onPress={...}
+          onPress={() =>
+            socket.joinQ(
+              this.props.user,
+              this.props.restaurant,
+              this.state.numOfGuests
+            )
+          }
         >
           <Text>Join Q</Text>
         </Button>

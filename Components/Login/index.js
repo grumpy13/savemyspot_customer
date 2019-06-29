@@ -12,9 +12,9 @@ import {
   Input,
   Text
 } from "native-base";
-import { Card } from "react-native-elements";
+// import { Card } from "react-native-elements";
 
-import Gradient from "react-native-css-gradient";
+// import Gradient from "react-native-css-gradient";
 // Stores
 import authStore from "../../Stores/authStore";
 

@@ -7,6 +7,7 @@ import Spinner from "./spinner.js";
 
 //Stores
 import authStore from "../../Stores/authStore";
+import socket from "../../Stores/socketStore";
 
 import styles from "./styles";
 
@@ -21,8 +22,30 @@ class Queue extends Component {
       position: null
     };
   }
+  restaurantRequest() {
+    if (authStore.user) {
+      socket.getRestaurant(this.props.restaurant, authStore.user.user_id);
+    } else {
+      socket.getRestaurant(this.props.restaurant, null);
+    }
+  }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.restaurantRequest();
+    socket.socket.on("q info", data => {
+      this.setState({ currentQ: data.restaurantQ });
+    });
+
+    socket.socket.on("user spot", data => {
+      this.setState({ position: data.spot });
+    });
+  }
+
+  componentWillUnmount() {
+    socket.socket.off("q info");
+    socket.socket.off("user spot");
+    socket.socket.off("update queue");
+  }
 
   getQueueNumber() {
     if (this.state.position) {

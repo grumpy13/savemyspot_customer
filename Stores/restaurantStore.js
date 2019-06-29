@@ -16,7 +16,7 @@ class RestaurantStore {
 
   fetchAllRestaurants() {
     instance
-      .get("/restaurant/list/")
+      .get("restaurant/list/")
       .then(res => res.data)
       .then(restaurant => {
         this.restaurants = restaurant;
@@ -26,7 +26,7 @@ class RestaurantStore {
 
   fetchARestaurant(restaurantID) {
     instance
-      .get(`/restaurant/detail/${restaurantID}`)
+      .get(`restaurant/detail/${restaurantID}`)
       .then(res => res.data)
       .then(restaurant => {
         this.restaurant = restaurant;

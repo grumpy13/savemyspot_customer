@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 import axios from "axios";
 
-import { HeaderBackButton } from "react-navigation";
+// import { HeaderBackButton } from "react-navigation";
 import { Container, Content } from "native-base";
 import { ScrollView } from "react-native";
 
@@ -37,7 +37,7 @@ class RestaurantDetail extends Component {
 
   fetchARestaurant() {
     instance
-      .get("/restaurant/detail/" + this.state.restaurantID)
+      .get("restaurant/detail/" + this.state.restaurantID)
       .then(res => res.data)
       .then(restaurant =>
         this.setState({ restaurant: restaurant, loading: false })

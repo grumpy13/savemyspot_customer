@@ -16,8 +16,8 @@ class App extends React.Component {
 
   componentWillMount() {
     Font.loadAsync({
-      Roboto: require("native-base/Fonts/Roboto.ttf"),
-      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
+      // Roboto: require("native-base/Fonts/Roboto.ttf"),
+      // Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
     }).then(() => this.setState({ fontsAreLoaded: true }));
   }
 
